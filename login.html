@@ -260,7 +260,7 @@
           <p>Please enter your details to sign in.</p>
         </div>
 
-        <form action="index.html">
+        <form id="loginForm">
           <div class="mb-3">
             <label for="email" class="form-label">Email Address</label>
             <div class="input-group">
@@ -303,24 +303,30 @@
             <a href="#" class="forgot-password">Forgot password?</a>
           </div>
 
-          <div class="d-grid gap-3">
-            <button
-              type="submit"
-              class="btn-login"
-              onclick="this.form.action = 'index.html'"
-            >
-              Sign In
-            </button>
-            <button
-              type="submit"
-              class="btn btn-outline-primary fw-bold p-3"
-              style="border-radius: 10px; border-width: 2px"
-              onclick="this.form.action = 'admin_dashboard.html'"
-            >
-              Login
-            </button>
+          <div class="d-grid gap-3 mt-4">
+            <button type="submit" class="btn-login">Sign In</button>
           </div>
         </form>
+
+        <script>
+          document
+            .getElementById("loginForm")
+            .addEventListener("submit", function (e) {
+              e.preventDefault();
+              const email = document.getElementById("email").value;
+              const password = document.getElementById("password").value;
+
+              if (email === "admin@gmail.com" && password === "pass123") {
+                window.location.href = "admin_dashboard.html";
+              } else if (email === "user@gmail.com" && password === "pass123") {
+                window.location.href = "buying/buying.html";
+              } else {
+                alert(
+                  "Invalid credentials. Hint: admin@gmail.com / pass123 or user@gmail.com / pass123",
+                );
+              }
+            });
+        </script>
 
         <div class="footer-text mt-5"></div>
       </div>

@@ -16,6 +16,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
+    <link rel="stylesheet" href="../universal.css" />
     <style>
       :root {
         --primary-color: #2563eb;
@@ -134,7 +135,7 @@
         </div>
       </div>
       <div class="py-4">
-        <a href="index.html" class="nav-link"
+        <a href="buying.html" class="nav-link"
           ><i class="fa-solid fa-arrow-left"></i> Back to Dashboard</a
         >
         <div class="px-3 mt-4 mb-2 small text-uppercase opacity-50 fw-bold">
@@ -165,53 +166,97 @@
         </div>
         <div class="form-body p-4">
           <form id="quoteForm" class="needs-validation" novalidate>
-  <div class="row g-4">
-    <div class="col-md-6">
-      <label class="form-label">RFQ Supplier ID (Reference)</label>
-      <input type="text" name="rfq_supplier_id" class="form-control" placeholder="BRS0001" required />
-    </div>
-    <div class="col-md-6">
-      <label class="form-label">Quotation Date</label>
-      <input type="date" id="qDate" name="quotation_date" class="form-control" required />
-    </div>
-    <div class="col-md-6">
-      <label class="form-label">Currency Code</label>
-      <input type="text" name="currency_code" class="form-control" placeholder="PHP" required />
-    </div>
-    <div class="col-md-6">
-      <label class="form-label">Status</label>
-      <select name="supplier_quotation_status_id" class="form-select" required>
-        <option value="BSQS0001">Pending Review</option>
-        <option value="BSQS0002">Accepted</option>
-        <option value="BSQS0003">Rejected</option>
-      </select>
-    </div>
+            <div class="row g-4">
+              <div class="col-md-6">
+                <label class="form-label">RFQ Supplier ID (Reference)</label>
+                <input
+                  type="text"
+                  name="rfq_supplier_id"
+                  class="form-control"
+                  placeholder="BRS0001"
+                  required
+                />
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Quotation Date</label>
+                <input
+                  type="date"
+                  id="qDate"
+                  name="quotation_date"
+                  class="form-control"
+                  required
+                />
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Currency Code</label>
+                <input
+                  type="text"
+                  name="currency_code"
+                  class="form-control"
+                  placeholder="PHP"
+                  required
+                />
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Status</label>
+                <select
+                  name="supplier_quotation_status_id"
+                  class="form-select"
+                  required
+                >
+                  <option value="BSQS0001">Pending Review</option>
+                  <option value="BSQS0002">Accepted</option>
+                  <option value="BSQS0003">Rejected</option>
+                </select>
+              </div>
 
-    <div class="col-12 mt-4">
-      <h6 class="fw-bold text-uppercase text-primary small mb-3">Item Details</h6>
-      <div class="quote-row p-3 border rounded mb-2">
-        <div class="row g-3">
-          <div class="col-md-4">
-            <label class="form-label">Item ID</label>
-            <input type="text" name="item_id[]" class="form-control" placeholder="SI0001" required />
-          </div>
-          <div class="col-md-4">
-            <label class="form-label">Quoted Quantity</label>
-            <input type="number" name="quantity[]" class="form-control" required min="1" />
-          </div>
-          <div class="col-md-4">
-            <label class="form-label">Unit Price</label>
-            <input type="number" name="unit_price[]" step="0.01" class="form-control" required />
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+              <div class="col-12 mt-4">
+                <h6 class="fw-bold text-uppercase text-primary small mb-3">
+                  Item Details
+                </h6>
+                <div class="quote-row p-3 border rounded mb-2">
+                  <div class="row g-3">
+                    <div class="col-md-4">
+                      <label class="form-label">Item ID</label>
+                      <input
+                        type="text"
+                        name="item_id[]"
+                        class="form-control"
+                        placeholder="SI0001"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-4">
+                      <label class="form-label">Quoted Quantity</label>
+                      <input
+                        type="number"
+                        name="quantity[]"
+                        class="form-control"
+                        required
+                        min="1"
+                      />
+                    </div>
+                    <div class="col-md-4">
+                      <label class="form-label">Unit Price</label>
+                      <input
+                        type="number"
+                        name="unit_price[]"
+                        step="0.01"
+                        class="form-control"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-  <div class="mt-5 d-flex justify-content-end gap-3">
-    <button type="submit" class="btn btn-primary px-5 py-2">Submit Official Quotation</button>
-  </div>
-</form>
+            <div class="mt-5 d-flex justify-content-end gap-3">
+              <button type="submit" class="btn btn-primary px-5 py-2">
+                Submit Official Quotation
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </main>

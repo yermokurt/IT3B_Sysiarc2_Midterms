@@ -16,6 +16,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
+    <link rel="stylesheet" href="../universal.css" />
     <style>
       :root {
         --primary-color: #2563eb;
@@ -134,7 +135,7 @@
         </div>
       </div>
       <div class="py-4">
-        <a href="index.html" class="nav-link"
+        <a href="buying.html" class="nav-link"
           ><i class="fa-solid fa-arrow-left"></i> Back to Dashboard</a
         >
         <div class="px-3 mt-4 mb-2 small text-uppercase opacity-50 fw-bold">
@@ -164,35 +165,57 @@
         </div>
         <div class="form-body p-4">
           <form id="mrForm" class="needs-validation" novalidate>
-  <div class="row g-4">
-    <div class="col-md-6">
-      <label class="form-label">Employee ID (Requested By)</label>
-      <input type="text" name="requested_by_employee_id" class="form-control" required />
-    </div>
-    <div class="col-md-6">
-      <label class="form-label">Request Date</label>
-      <input type="date" id="reqDate" name="request_date" class="form-control" required />
-    </div>
-    <div class="col-md-6">
-      <label class="form-label">Sales Order ID (Reference)</label>
-      <input type="text" name="sales_order_id" class="form-control" placeholder="SSO0001" />
-    </div>
-    <div class="col-md-6">
-      <label class="form-label">Status</label>
-      <select name="mr_status_id" class="form-select" required>
-        <option value="BMS0001">Pending</option>
-        <option value="BMS0002">Approved</option>
-      </select>
-    </div>
-    <div class="col-12">
-      <label class="form-label">Remarks</label>
-      <textarea name="remarks" class="form-control" rows="2"></textarea>
-    </div>
-  </div>
-  <div class="mt-5 d-flex justify-content-end gap-3">
-    <button type="submit" class="btn btn-primary px-5 py-2">Create Material Request</button>
-  </div>
-</form>
+            <div class="row g-4">
+              <div class="col-md-6">
+                <label class="form-label">Employee ID (Requested By)</label>
+                <input
+                  type="text"
+                  name="requested_by_employee_id"
+                  class="form-control"
+                  required
+                />
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Request Date</label>
+                <input
+                  type="date"
+                  id="reqDate"
+                  name="request_date"
+                  class="form-control"
+                  required
+                />
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Sales Order ID (Reference)</label>
+                <input
+                  type="text"
+                  name="sales_order_id"
+                  class="form-control"
+                  placeholder="SSO0001"
+                />
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Status</label>
+                <select name="mr_status_id" class="form-select" required>
+                  <option value="BMS0001">Pending</option>
+                  <option value="BMS0002">Approved</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label class="form-label">Remarks</label>
+                <textarea
+                  name="remarks"
+                  class="form-control"
+                  rows="2"
+                ></textarea>
+              </div>
+            </div>
+            <div class="mt-5 d-flex justify-content-end gap-3">
+              <button type="submit" class="btn btn-primary px-5 py-2">
+                Create Material Request
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </main>

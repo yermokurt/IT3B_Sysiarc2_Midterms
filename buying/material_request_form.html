@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Item Master - IT3B Inc.</title>
+    <title>Material Request - IT3B Inc.</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -16,6 +16,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
+    <link rel="stylesheet" href="../universal.css" />
     <style>
       :root {
         --primary-color: #2563eb;
@@ -89,14 +90,12 @@
         box-shadow: var(--card-shadow);
         border: none;
         overflow: hidden;
+        margin-bottom: 2rem;
       }
       .form-header {
         background: #f8fafc;
         padding: 2rem;
         border-bottom: 1px solid #e2e8f0;
-      }
-      .form-body {
-        padding: 2.5rem;
       }
       .form-label {
         font-weight: 600;
@@ -109,11 +108,6 @@
         border-radius: 12px;
         padding: 0.75rem 1rem;
         border: 1px solid #e2e8f0;
-        transition: all 0.2s;
-      }
-      .form-control:focus {
-        border-color: var(--primary-color);
-        box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
       }
       .btn-primary {
         background: var(--primary-color);
@@ -121,11 +115,13 @@
         padding: 0.75rem 1.5rem;
         border-radius: 12px;
         font-weight: 600;
-        transition: all 0.2s;
       }
-      .btn-primary:hover {
-        background: #1d4ed8;
-        transform: translateY(-1px);
+      .item-row {
+        background: #f8fafc;
+        border-radius: 16px;
+        padding: 1.5rem;
+        margin-top: 1rem;
+        border: 1px dashed #cbd5e1;
       }
     </style>
   </head>
@@ -135,84 +131,88 @@
         <div class="logo-icon"><i class="fa-solid fa-cube"></i></div>
         <div>
           <h6 class="mb-0 fw-bold">IT3B Inc.</h6>
-          <small class="text-white-50">Inventory System</small>
+          <small class="text-white-50">Enterprise Edition</small>
         </div>
       </div>
       <div class="py-4">
-        <a href="index.html" class="nav-link"
+        <a href="buying.html" class="nav-link"
           ><i class="fa-solid fa-arrow-left"></i> Back to Dashboard</a
         >
         <div class="px-3 mt-4 mb-2 small text-uppercase opacity-50 fw-bold">
-          Inventory
+          Procurement Cycle
         </div>
-        <a href="item_master_form.html" class="nav-link active"
-          ><i class="fa-solid fa-box-open"></i> Item Master</a
+        <a href="material_request_form.html" class="nav-link active"
+          ><i class="fa-solid fa-file-invoice"></i> Material Request</a
         >
-        <a href="supplier_master_form.html" class="nav-link"
-          ><i class="fa-solid fa-truck-field"></i> Supplier Master</a
+        <a href="rfq_form.html" class="nav-link"
+          ><i class="fa-solid fa-comments-dollar"></i> RFQ</a
+        >
+        <a href="supplier_quotation_form.html" class="nav-link"
+          ><i class="fa-solid fa-file-contract"></i> Quotation</a
+        >
+        <a href="purchase_order_form.html" class="nav-link"
+          ><i class="fa-solid fa-cart-shopping"></i> Purchase Order</a
         >
       </div>
     </nav>
     <main class="main-content">
       <div class="form-card">
         <div class="form-header">
-          <h4 class="fw-bold mb-1">Item (Master Record)</h4>
+          <h4 class="fw-bold mb-1">Material Request</h4>
           <p class="text-muted mb-0 small">
-            Create or update fundamental material/product details in the
-            database.
+            Internal Requisition (Header & Lines)
           </p>
         </div>
-        <div class="form-body">
-          <form id="itemForm" class="needs-validation" novalidate>
+        <div class="form-body p-4">
+          <form id="mrForm" class="needs-validation" novalidate>
             <div class="row g-4">
               <div class="col-md-6">
-                <label class="form-label">Item ID</label
-                ><input
+                <label class="form-label">Employee ID (Requested By)</label>
+                <input
                   type="text"
+                  name="requested_by_employee_id"
                   class="form-control"
-                  placeholder="e.g. MAT-001"
                   required
                 />
               </div>
               <div class="col-md-6">
-                <label class="form-label">Item Name</label
-                ><input
-                  type="text"
+                <label class="form-label">Request Date</label>
+                <input
+                  type="date"
+                  id="reqDate"
+                  name="request_date"
                   class="form-control"
-                  placeholder="Enter descriptive name"
                   required
                 />
               </div>
               <div class="col-md-6">
-                <label class="form-label">Unit Price ($)</label
-                ><input
-                  type="number"
-                  step="0.01"
+                <label class="form-label">Sales Order ID (Reference)</label>
+                <input
+                  type="text"
+                  name="sales_order_id"
                   class="form-control"
-                  placeholder="0.00"
-                  required
+                  placeholder="SSO0001"
                 />
               </div>
               <div class="col-md-6">
-                <label class="form-label">Link Supplier ID (FK)</label
-                ><input
-                  type="text"
+                <label class="form-label">Status</label>
+                <select name="mr_status_id" class="form-select" required>
+                  <option value="BMS0001">Pending</option>
+                  <option value="BMS0002">Approved</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label class="form-label">Remarks</label>
+                <textarea
+                  name="remarks"
                   class="form-control"
-                  placeholder="Search Supplier..."
-                  required
-                />
+                  rows="2"
+                ></textarea>
               </div>
             </div>
             <div class="mt-5 d-flex justify-content-end gap-3">
-              <button
-                type="reset"
-                class="btn btn-light px-4 py-2 fw-bold"
-                style="border-radius: 12px"
-              >
-                Reset
-              </button>
               <button type="submit" class="btn btn-primary px-5 py-2">
-                Save Record
+                Create Material Request
               </button>
             </div>
           </form>
@@ -220,10 +220,11 @@
       </div>
     </main>
     <script>
-      document.getElementById("itemForm").onsubmit = (e) => {
+      document.getElementById("reqDate").valueAsDate = new Date();
+      document.getElementById("mrForm").onsubmit = (e) => {
         e.preventDefault();
         if (e.target.checkValidity())
-          alert("Item Master record has been saved successfully!");
+          alert("Material Request created successfully!");
         e.target.classList.add("was-validated");
       };
     </script>

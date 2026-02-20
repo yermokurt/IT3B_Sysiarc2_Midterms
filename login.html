@@ -318,11 +318,18 @@
 
               if (email === "admin@gmail.com" && password === "pass123") {
                 window.location.href = "admin_dashboard.html";
-              } else if (email === "user@gmail.com" && password === "pass123") {
-                window.location.href = "buying/buying.html";
-              } else {
+              } else if (email === "buying@gmail.com" && password === "pass123") {
+                window.location.href = "admin_dashboard.html";
+              } else if (email === "crm@gmail.com" && password === "pass123") {
+                window.location.href = "crm-admin_dashboard.html";
+              }  
+              
+              
+              
+              else {
+
                 alert(
-                  "Invalid credentials. Hint: admin@gmail.com / pass123 or user@gmail.com / pass123",
+                  "Invalid credentials. Hint: admin@gmail.com / pass123 or crm@gmail.com / pass123",
                 );
               }
             });
